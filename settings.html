@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Set your daily target, units, reminders and appearance.">
+  <title>Settings – AquaTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="settings">
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><span class="logo-icon" data-icon="drop"></span>AquaTrack</a>
+      <nav aria-label="Main">
+        <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" data-page="home"><span data-icon="home"></span>Home</a></li>
+        <li><a href="tracker.html" data-page="tracker"><span data-icon="glass"></span>Tracker</a></li>
+        <li><a href="calendar.html" data-page="calendar"><span data-icon="calendar"></span>Calendar</a></li>
+        <li><a href="dashboard.html" data-page="dashboard"><span data-icon="chart"></span>Dashboard</a></li>
+        <li><a href="settings.html" data-page="settings"><span data-icon="settings"></span>Settings</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <span class="streak-badge"></span>
+        <button type="button" class="icon-btn theme-toggle" aria-label="Toggle dark mode"></button>
+        <button type="button" class="icon-btn hamburger" aria-label="Menu" aria-controls="nav-links" aria-expanded="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-header">
+      <div class="container">
+        <h1>Settings</h1>
+        <p>Your target, units, reminders and data.</p>
+      </div>
+    </header>
+
+    <section class="section tight-top">
+      <div class="container narrow-block">
+
+        <div class="setting col">
+          <h2>Daily target</h2>
+          <form class="row" id="target-form" novalidate>
+            <label class="field"><span class="sr">Daily target</span>
+              <input type="number" id="target-amt" inputmode="decimal">
+              <span class="unit" data-unit></span>
+            </label>
+            <button class="btn" type="submit">Save target</button>
+          </form>
+          <p class="hint" id="target-hint"></p>
+        </div>
+
+        <div class="setting col">
+          <h2>Target calculator</h2>
+          <p class="hint">A rough estimate based on body weight and activity.</p>
+          <form class="calc" id="calc-form" novalidate>
+            <label>Body weight (kg)
+              <input type="number" id="c-weight" min="20" max="250" inputmode="decimal" placeholder="e.g. 65">
+            </label>
+            <label>Exercise today (minutes)
+              <input type="number" id="c-exercise" min="0" max="600" inputmode="numeric" value="0">
+            </label>
+            <label class="check"><input type="checkbox" id="c-hot"> Hot weather</label>
+            <button class="btn ghost" type="submit">Calculate</button>
+          </form>
+          <div class="calc-result" id="calc-result" hidden>
+            <p id="calc-value"></p>
+            <button class="btn" type="button" id="calc-use">Use this target</button>
+          </div>
+        </div>
+
+        <div class="setting col">
+          <h2>Units</h2>
+          <div class="segmented" role="radiogroup" aria-label="Units" id="unit-seg">
+            <button type="button" role="radio" data-value="ml">Millilitres (ml)</button>
+            <button type="button" role="radio" data-value="oz">Fluid ounces (fl oz)</button>
+          </div>
+        </div>
+
+        <div class="setting col">
+          <h2>Appearance</h2>
+          <div class="segmented" role="radiogroup" aria-label="Theme" id="theme-seg">
+            <button type="button" role="radio" data-value="system">Match device</button>
+            <button type="button" role="radio" data-value="light">Light</button>
+            <button type="button" role="radio" data-value="dark">Dark</button>
+          </div>
+        </div>
+
+        <div class="setting">
+          <div>
+            <h2>Drink reminders</h2>
+            <p class="hint" id="rem-status"></p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="rem-on">
+            <span class="track" aria-hidden="true"></span>
+            <span class="sr">Turn drink reminders on</span>
+          </label>
+        </div>
+        <div class="setting sub-setting">
+          <label for="rem-every">Remind me after</label>
+          <select id="rem-every">
+            <option value="30">30 minutes</option>
+            <option value="45">45 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="90">1 hour 30 minutes</option>
+            <option value="120">2 hours</option>
+          </select>
+        </div>
+        <div class="setting sub-setting">
+          <span>Active hours</span>
+          <div class="row nowrap">
+            <label class="field small"><span class="sr">From</span><input type="time" id="rem-start"></label>
+            <span class="muted">to</span>
+            <label class="field small"><span class="sr">Until</span><input type="time" id="rem-end"></label>
+          </div>
+        </div>
+        <div class="setting sub-setting">
+          <p class="hint">Reminders work while any page of this site is open in a browser tab.</p>
+          <button class="btn ghost small" type="button" id="rem-test">Send a test reminder</button>
+        </div>
+
+        <div class="setting col">
+          <h2>Your data</h2>
+          <p class="hint">Everything is stored in this browser only. Export a backup to move it to another device.</p>
+          <div class="row">
+            <button class="btn ghost" type="button" id="export-btn">Export data</button>
+            <label class="btn ghost file-btn">Import data<input type="file" id="import-file" accept="application/json,.json"></label>
+            <button class="btn ghost danger" type="button" id="clear-btn">Delete all data</button>
+          </div>
+          <p class="hint" id="data-hint"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand"><span data-icon="drop"></span>AquaTrack</div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year">2026</span> Daily Water Intake Tracker. Your data stays in this browser.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

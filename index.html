@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Track your daily water intake with an animated carafe, a calendar, a dashboard and reminders.">
+  <title>Daily Water Intake Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><span class="logo-icon" data-icon="drop"></span>AquaTrack</a>
+      <nav aria-label="Main">
+        <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" data-page="home"><span data-icon="home"></span>Home</a></li>
+        <li><a href="tracker.html" data-page="tracker"><span data-icon="glass"></span>Tracker</a></li>
+        <li><a href="calendar.html" data-page="calendar"><span data-icon="calendar"></span>Calendar</a></li>
+        <li><a href="dashboard.html" data-page="dashboard"><span data-icon="chart"></span>Dashboard</a></li>
+        <li><a href="settings.html" data-page="settings"><span data-icon="settings"></span>Settings</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <span class="streak-badge"></span>
+        <button type="button" class="icon-btn theme-toggle" aria-label="Toggle dark mode"></button>
+        <button type="button" class="icon-btn hamburger" aria-label="Menu" aria-controls="nav-links" aria-expanded="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Drink enough water, one glass at a time.</h1>
+          <p class="lead">Set a daily target, log each glass in a tap, and watch the carafe fill. Your calendar and dashboard show how steady your habit is over weeks and months.</p>
+          <dl class="hero-stats">
+            <div><dt>Today</dt><dd id="hero-today">0%</dd></div>
+            <div><dt>Current streak</dt><dd id="hero-streak">0</dd></div>
+            <div><dt>7-day average</dt><dd id="hero-avg">–</dd></div>
+          </dl>
+          <div class="hero-buttons">
+            <a href="tracker.html" class="btn">Log water</a>
+            <a href="dashboard.html" class="btn ghost">View dashboard</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div id="hero-carafe" class="hero-carafe"></div>
+          <p class="hero-caption" id="hero-caption"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-subtitle">Four steps from your first glass to a lasting habit.</p>
+        <ol class="steps">
+          <li>
+            <h3>Set your target</h3>
+            <p>Choose a daily amount in Settings, or let the calculator suggest one from your weight and activity.</p>
+          </li>
+          <li>
+            <h3>Log each serving</h3>
+            <p>Tap a cup, glass, mug or bottle on the Tracker, or type any amount. Made a mistake? Undo it.</p>
+          </li>
+          <li>
+            <h3>Watch it fill</h3>
+            <p>The carafe rises with every serving and changes colour when you reach your target.</p>
+          </li>
+          <li>
+            <h3>Review your progress</h3>
+            <p>See every day on the Calendar, and your streaks, charts and achievements on the Dashboard.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow-block">
+        <h2 class="section-title">Hydration tips</h2>
+        <p class="section-subtitle">Simple habits that make it easier to drink enough.</p>
+        <div class="tips">
+          <details open>
+            <summary>How much water do I need?</summary>
+            <p>Needs vary with body size, activity, climate and health. Many guidelines suggest about 2 to 2.7 litres of fluid a day for adult women and 2.5 to 3.7 litres for adult men, counting water from all drinks and food. Treat any target as a starting point and adjust to how you feel.</p>
+          </details>
+          <details>
+            <summary>Tie drinking to your routine</summary>
+            <p>Have a glass when you wake up, with each meal, and when you sit down to study or work. Habits linked to things you already do are easier to keep.</p>
+          </details>
+          <details>
+            <summary>Keep water within reach</summary>
+            <p>A refillable bottle on your desk or in your bag makes it much more likely you'll sip through the day.</p>
+          </details>
+          <details>
+            <summary>Drink more in heat and during exercise</summary>
+            <p>You lose extra water through sweat on hot days and when you're active. Drink before, during and after exercise.</p>
+          </details>
+          <details>
+            <summary>Check the signs</summary>
+            <p>Thirst, dark yellow urine, headaches, tiredness and a dry mouth can mean you need more fluid. Pale yellow urine usually means you're drinking enough.</p>
+          </details>
+          <details>
+            <summary>Don't overdo it</summary>
+            <p>Drinking very large amounts in a short time can be harmful. Spread your intake across the day. If you have a heart, kidney or other health condition, ask a health professional what target suits you.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <h2 id="cta-title">Start with your first glass.</h2>
+          <p id="cta-text">Everything is stored privately in this browser. No account needed.</p>
+          <div class="hero-buttons">
+            <a href="tracker.html" class="btn on-dark">Open the tracker</a>
+            <a href="calendar.html" class="btn ghost on-dark">See the calendar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand"><span data-icon="drop"></span>AquaTrack</div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year">2026</span> Daily Water Intake Tracker. Your data stays in this browser.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

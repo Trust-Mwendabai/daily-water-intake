@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="A month-by-month view of how much water you drank each day.">
+  <title>Calendar – AquaTrack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="calendar">
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><span class="logo-icon" data-icon="drop"></span>AquaTrack</a>
+      <nav aria-label="Main">
+        <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" data-page="home"><span data-icon="home"></span>Home</a></li>
+        <li><a href="tracker.html" data-page="tracker"><span data-icon="glass"></span>Tracker</a></li>
+        <li><a href="calendar.html" data-page="calendar"><span data-icon="calendar"></span>Calendar</a></li>
+        <li><a href="dashboard.html" data-page="dashboard"><span data-icon="chart"></span>Dashboard</a></li>
+        <li><a href="settings.html" data-page="settings"><span data-icon="settings"></span>Settings</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <span class="streak-badge"></span>
+        <button type="button" class="icon-btn theme-toggle" aria-label="Toggle dark mode"></button>
+        <button type="button" class="icon-btn hamburger" aria-label="Menu" aria-controls="nav-links" aria-expanded="false"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <header class="page-header">
+      <div class="container">
+        <h1>Calendar</h1>
+        <p>How close you came to your target, day by day.</p>
+      </div>
+    </header>
+
+    <section class="section tight-top">
+      <div class="container">
+        <div class="calendar-card">
+          <div class="calendar-toolbar">
+            <div class="calendar-nav">
+              <button type="button" class="icon-btn" id="prev-month" aria-label="Previous month"><span data-icon="left"></span></button>
+              <h2 class="month-label" id="month-label" aria-live="polite"></h2>
+              <button type="button" class="icon-btn" id="next-month" aria-label="Next month"><span data-icon="right"></span></button>
+            </div>
+            <button type="button" class="btn ghost small" id="this-month">This month</button>
+          </div>
+
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+          </div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+
+          <div class="calendar-legend">
+            <span>Less</span>
+            <span class="swatch l0"></span><span class="swatch l1"></span><span class="swatch l2"></span><span class="swatch l3"></span><span class="swatch l4"></span>
+            <span>Target met</span>
+          </div>
+        </div>
+
+        <dl class="stats month-stats">
+          <div class="stat"><dt>Days logged</dt><dd id="m-logged">0</dd></div>
+          <div class="stat"><dt>Target met</dt><dd id="m-met">0</dd></div>
+          <div class="stat"><dt>Daily average</dt><dd id="m-avg">–</dd></div>
+          <div class="stat"><dt>Month total</dt><dd id="m-total">0</dd></div>
+        </dl>
+
+        <div class="day-detail" id="day-detail" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand"><span data-icon="drop"></span>AquaTrack</div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="settings.html">Settings</a>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year">2026</span> Daily Water Intake Tracker. Your data stays in this browser.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/calendar.js"></script>
+</body>
+</html>
